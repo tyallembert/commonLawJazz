@@ -35,6 +35,22 @@ const Music = () => {
         setCurrentSong(songs[songID]);
     }, [songId, isPlaying, songs, audio])
 
+    const handlePrevious = () => {
+        if(songId === 0) {
+            handlePlay(songs.length - 1);
+        }else{
+            handlePlay(songId - 1);
+        }
+    }
+
+    const handleNext = () => {
+        if(songId === songs.length - 1) {
+            handlePlay(0);
+        }else{
+            handlePlay(songId + 1);
+        }
+    }
+
     const togglePlayPause = () => {
         if(isPlaying) {
             audio.pause();
@@ -52,9 +68,9 @@ const Music = () => {
                 <img src={Rich} alt="rich with bike" className="currentSongImage"/>
                 <h1 className="currentSongTitle">{currentSong.title}</h1>
                 <div className="controlsContainer">
-                    <button className="controlButton previous"><Back /></button>
+                    <button className="controlButton previous" onClick={handlePrevious}><Back /></button>
                     <PlayButton handlePlay={togglePlayPause} id={songId} currentSongId={songId} isPlaying={isPlaying}/>
-                    <button className="controlButton next"><Next /></button>
+                    <button className="controlButton next" onClick={handleNext}><Next /></button>
                 </div>
             </div>
             <div className="songsContainer">
