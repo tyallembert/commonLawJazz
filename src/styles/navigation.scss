@@ -2,11 +2,24 @@
 
 .navigationContainer{
     position: fixed;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    width: 35%;
-    padding: 1.5rem;
-    color: $secondary_color;
-    font-weight: 700;
+    width: 100%;
+    background-color: rgba($primary_color, 0.8);
+    z-index: 2;
+    .navElementsContainer{
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        width: 35%;
+        min-width: 300px;
+        padding: 1rem;
+        .navElement, .navElement:visited {
+            color: $secondary_color;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 200ms ease-in-out;
+            &:hover{
+                text-decoration: underline;
+            }
+        }
+    }
 }

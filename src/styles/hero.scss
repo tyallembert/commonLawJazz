@@ -11,3 +11,11 @@
         width: 40%;
     }
 }
+
+@media screen and (max-width: 800px) {
+    .heroContainer {
+        .logo{
+            width: 80%;
+        }
+    }
+}

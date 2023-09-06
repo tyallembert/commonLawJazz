@@ -1,4 +1,4 @@
-import {useCallback, useState} from "react";
+import {useCallback, useEffect, useState} from "react";
 import "../styles/music.scss";
 import Rich from "../images/rich_bike.png";
 import {ReactComponent as Back} from "../images/Back_Arrows.svg";
@@ -12,8 +12,29 @@ const Music = () => {
     const [songs] = useState(songsData);
     const [isPlaying, setIsPlaying] = useState(false);
     const [songId, setSongId] = useState(0);
+    const [currentTime, setCurrentTime] = useState(0);
+    const [duration, setDuration] = useState(0);
     const [currentSong, setCurrentSong] = useState(songs[songId]);
     const [audio] = useState(new Audio(songs[songId].src));
+
+    useEffect(() => {
+    
+        const handleTimeUpdate = () => {
+          setCurrentTime(audio.currentTime);
+        };
+    
+        const handleLoadedMetadata = () => {
+          setDuration(audio.duration);
+        };
+    
+        audio.addEventListener('timeupdate', handleTimeUpdate);
+        audio.addEventListener('loadedmetadata', handleLoadedMetadata);
+    
+        return () => {
+            audio.removeEventListener('timeupdate', handleTimeUpdate);
+            audio.removeEventListener('loadedmetadata', handleLoadedMetadata);
+        };
+      }, [audio]);
 
     const handlePlay = useCallback((songID=songId) => {
         if(songID === songId) {
@@ -61,13 +82,14 @@ const Music = () => {
     }
 
     return (
-        <div className="musicContainer">
-            <h1 className="title">Music</h1>
+        <div className="musicContainer" id="music">
             <div className="playerContainer">
-                {/* <audio src={currentSong.src} autoPlay={isPlaying} /> */}
                 <img src={Rich} alt="rich with bike" className="currentSongImage"/>
-                <h1 className="currentSongTitle">{currentSong.title}</h1>
+                <h1 className={isPlaying ? "currentSongTitle songPlaying": "currentSongTitle"}>{currentSong.title}</h1>
                 <div className="controlsContainer">
+                    <div className="progressBarContainer">
+                        <div className="progressBar" style={{ width: `${(currentTime / duration) * 100}%` }}></div>
+                    </div>
                     <button className="controlButton previous" onClick={handlePrevious}><Back /></button>
                     <PlayButton handlePlay={togglePlayPause} id={songId} currentSongId={songId} isPlaying={isPlaying}/>
                     <button className="controlButton next" onClick={handleNext}><Next /></button>
@@ -91,7 +113,7 @@ const Music = () => {
                         id={index} 
                         title={song.title} 
                         artist={song.artist} 
-                        time={song.time} 
+                        length={song.length} 
                         isPlaying={playing}
                         currentSongId={songId}
                         handlePlay={handlePlay} />

@@ -1,19 +1,21 @@
 
-
 export const songsData = [
-    {
-      title: 'Song 1',
-      artist: 'Author 1',
-      src: "https://commonlawjazz.s3.amazonaws.com/MIX_01.wav"
-    },
-    {
-        title: 'Song 2',
-        artist: 'Author 2',
-        src: "https://commonlawjazz.s3.amazonaws.com/MIX_01.wav"
-      },
-      {
-        title: 'Song 3',
-        artist: 'Author 3',
-        src: "https://commonlawjazz.s3.amazonaws.com/MIX_01.wav"
-      }
-  ];
+  {
+    title: 'Foldin Money',
+    artist: 'Rich Sikorski',
+    length: "3:08",
+    src: "https://commonlawjazz.s3.amazonaws.com/foldin_money.mp3"
+  },
+  {
+    title: 'Bossa U',
+    artist: 'Rich Sikorski',
+    length: "1:53",
+    src: "https://commonlawjazz.s3.amazonaws.com/bossa_u.mp3"
+  },
+  {
+    title: 'Je Peux Chanter',
+    artist: 'Rich Sikorski',
+    length: "1:33",
+    src: "https://commonlawjazz.s3.amazonaws.com/je_peux_chanter.mp3"
+  }
+];

@@ -3,7 +3,7 @@ import Selfie from "../images/rich_1.png";
 
 const About = () => {
     return (
-        <div className="aboutContainer">
+        <div className="aboutContainer" id="about">
             <img src={Selfie} alt="rich selfie" className="richSelfie"/>
             <div className="aboutTextContainer">
                 <h1 className="aboutHeader">Rich Sikorski</h1>
