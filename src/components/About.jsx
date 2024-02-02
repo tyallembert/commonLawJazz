@@ -7,8 +7,7 @@ const About = () => {
             <img src={Selfie} alt="rich selfie" className="richSelfie"/>
             <div className="aboutTextContainer">
                 <h1 className="aboutHeader">Rich Sikorski</h1>
-                <p className="aboutText">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolor ducimus quis, modi nobis blanditiis velit! Molestias nulla fugit modi vel maxime eum illum provident quod. Eum perferendis aspernatur quibusdam sit!
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolor ducimus quis, modi nobis blanditiis velit! Molestias nulla fugit modi vel maxime eum illum provident quod. Eum perferendis aspernatur quibusdam sit!</p>
+                <p className="aboutText">Meet Rich, the creative force behind Common Law Jazz. As a passionate multi-instrumentalist, composer, and arranger, Rich crafts a fusion of classic and modern jazz vibes. Common Law Jazz is his personal musical journey, where soulful melodies and rhythms showcase his deep love for the genre. Join us in experiencing jazz through Rich's unique perspective as he brings his heartfelt dedication to life in the captivating sounds of Common Law Jazz.</p>
             </div>
         </div>
     )
